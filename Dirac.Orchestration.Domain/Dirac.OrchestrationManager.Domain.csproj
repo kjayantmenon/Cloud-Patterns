@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dirac.Domain.Common\Dirac.Domain.Common.csproj" />
+    <ProjectReference Include="..\Dirac.OrchestrationService.Domain\Dirac.OrchestrationService.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

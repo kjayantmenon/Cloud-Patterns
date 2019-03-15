@@ -11,15 +11,7 @@ namespace Dirac.Orchestration.Domain
     {
         public class WorkflowFactory
         {
-            public static Workflow CreateWorkflow(LOB LOB )
-            {
-
-                return new Workflow(new Guid().ToString())
-                {
-                    LOB = LOB
-                };
-            }
-
+            
             public static Workflow GetWorkflow(string id)
             {
                 return new Workflow()
@@ -49,7 +41,7 @@ namespace Dirac.Orchestration.Domain
         {
             this.Id = id;
         }
-        public LOB LOB { get; protected set; }
+        
         public async Task AddStage(Stage stage)
         {
 

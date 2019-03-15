@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dirac.Orchestration.Domain
 {
-    public class Algorithm:Entity
+    public class Algorithm:ValueObject
     {
         public static class AlgorithmFactory
         {
@@ -43,5 +44,5 @@ namespace Dirac.Orchestration.Domain
 
         public AlgorithmCategory Category { get; set; }
 
-    }
+        }
 }

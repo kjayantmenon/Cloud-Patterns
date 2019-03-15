@@ -1,61 +1,92 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Dirac.Orchestration.Domain
 {
+    using System;
+    using System.Collections.Generic;
+
     public abstract class ValueObject
     {
-        protected static bool EqualOperator(ValueObject left, ValueObject right)
+        int? _requestedHashCode;
+        string _Id;
+        public virtual string Id
         {
-            if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))
+            get
             {
-                return false;
+                return _Id;
             }
-            return ReferenceEquals(left, null) || left.Equals(right);
+            protected set
+            {
+                _Id = value;
+            }
         }
 
-        protected static bool NotEqualOperator(ValueObject left, ValueObject right)
+        private List<INotification> _domainEvents;
+        public IReadOnlyCollection<INotification> DomainEvents => _domainEvents?.AsReadOnly();
+
+        public void AddDomainEvent(INotification eventItem)
         {
-            return !(EqualOperator(left, right));
+            _domainEvents = _domainEvents ?? new List<INotification>();
+            _domainEvents.Add(eventItem);
         }
 
-        protected abstract IEnumerable<object> GetAtomicValues();
+        public void RemoveDomainEvent(INotification eventItem)
+        {
+            _domainEvents?.Remove(eventItem);
+        }
+
+        public void ClearDomainEvents()
+        {
+            _domainEvents?.Clear();
+        }
+
+        public bool IsTransient()
+        {
+            return this.Id == default(string);
+        }
 
         public override bool Equals(object obj)
         {
-            if (obj == null || obj.GetType() != GetType())
-            {
+            if (obj == null || !(obj is ValueObject))
                 return false;
-            }
-            ValueObject other = (ValueObject)obj;
-            IEnumerator<object> thisValues = GetAtomicValues().GetEnumerator();
-            IEnumerator<object> otherValues = other.GetAtomicValues().GetEnumerator();
-            while (thisValues.MoveNext() && otherValues.MoveNext())
-            {
-                if (ReferenceEquals(thisValues.Current, null) ^ ReferenceEquals(otherValues.Current, null))
-                {
-                    return false;
-                }
-                if (thisValues.Current != null && !thisValues.Current.Equals(otherValues.Current))
-                {
-                    return false;
-                }
-            }
-            return !thisValues.MoveNext() && !otherValues.MoveNext();
+
+            if (Object.ReferenceEquals(this, obj))
+                return true;
+
+            if (this.GetType() != obj.GetType())
+                return false;
+
+            ValueObject item = (ValueObject)obj;
+
+            if (item.IsTransient() || this.IsTransient())
+                return false;
+            else
+                return item.Id == this.Id;
         }
 
         public override int GetHashCode()
         {
-            return GetAtomicValues()
-             .Select(x => x != null ? x.GetHashCode() : 0)
-             .Aggregate((x, y) => x ^ y);
+            if (!IsTransient())
+            {
+                if (!_requestedHashCode.HasValue)
+                    _requestedHashCode = this.Id.GetHashCode() ^ 31; // XOR for random distribution (http://blogs.msdn.com/b/ericlippert/archive/2011/02/28/guidelines-and-rules-for-gethashcode.aspx)
+
+                return _requestedHashCode.Value;
+            }
+            else
+                return base.GetHashCode();
+
+        }
+        public static bool operator ==(ValueObject left, ValueObject right)
+        {
+            if (Object.Equals(left, null))
+                return (Object.Equals(right, null)) ? true : false;
+            else
+                return left.Equals(right);
         }
 
-        public ValueObject GetCopy()
+        public static bool operator !=(ValueObject left, ValueObject right)
         {
-            return this.MemberwiseClone() as ValueObject;
+            return !(left == right);
         }
     }
-
 }

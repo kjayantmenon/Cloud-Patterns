@@ -6,9 +6,6 @@ namespace Dirac.Orchestration.Domain
     {
         public string Name { get; set; }
         public string Version { get; set; }
-        protected override IEnumerable<object> GetAtomicValues()
-        {
-            throw new System.NotImplementedException();
-        }
+        
     }
 }

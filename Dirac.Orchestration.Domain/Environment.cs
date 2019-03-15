@@ -10,11 +10,6 @@ namespace Dirac.Orchestration.Domain
         public OS OS{ get; set; }
 
 
-        protected override IEnumerable<object> GetAtomicValues()
-        {
-            throw new NotImplementedException();
-        }
-
         public RAM RAM { get; set; }
         //"ram": "",
         //"gpu": "",
