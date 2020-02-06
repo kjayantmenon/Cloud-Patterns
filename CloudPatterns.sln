@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.779
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sched-Agent-Supv", "Sched-Agent-Supv\Sched-Agent-Supv.csproj", "{7076749B-42F7-4A13-BC0E-92C70876C9C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sched-Agent-Supv", "Sched-Agent-Supv\Sched-Agent-Supv.csproj", "{7076749B-42F7-4A13-BC0E-92C70876C9C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Dto", "Common\Common.Dto.csproj", "{2EC0AEC1-1682-4136-BB53-AE7DBE796751}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agent", "Agent\Agent.csproj", "{AD2E782A-675B-4483-871F-A0BEF376AE3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scheduler", "Scheduler\Scheduler.csproj", "{B556FCA2-76F2-4C97-A657-517777B6A18C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Q", "Common.Q\Common.Q.csproj", "{A0C87792-8590-4388-B9A9-8D8B52FD29D7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supervisor", "Supervisor\Supervisor.csproj", "{D0DB988C-A1D0-4797-B46F-DA1B7CF0798C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{7076749B-42F7-4A13-BC0E-92C70876C9C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7076749B-42F7-4A13-BC0E-92C70876C9C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7076749B-42F7-4A13-BC0E-92C70876C9C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EC0AEC1-1682-4136-BB53-AE7DBE796751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC0AEC1-1682-4136-BB53-AE7DBE796751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC0AEC1-1682-4136-BB53-AE7DBE796751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC0AEC1-1682-4136-BB53-AE7DBE796751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2E782A-675B-4483-871F-A0BEF376AE3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2E782A-675B-4483-871F-A0BEF376AE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2E782A-675B-4483-871F-A0BEF376AE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2E782A-675B-4483-871F-A0BEF376AE3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B556FCA2-76F2-4C97-A657-517777B6A18C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B556FCA2-76F2-4C97-A657-517777B6A18C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B556FCA2-76F2-4C97-A657-517777B6A18C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B556FCA2-76F2-4C97-A657-517777B6A18C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C87792-8590-4388-B9A9-8D8B52FD29D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C87792-8590-4388-B9A9-8D8B52FD29D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C87792-8590-4388-B9A9-8D8B52FD29D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C87792-8590-4388-B9A9-8D8B52FD29D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0DB988C-A1D0-4797-B46F-DA1B7CF0798C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0DB988C-A1D0-4797-B46F-DA1B7CF0798C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0DB988C-A1D0-4797-B46F-DA1B7CF0798C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0DB988C-A1D0-4797-B46F-DA1B7CF0798C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
