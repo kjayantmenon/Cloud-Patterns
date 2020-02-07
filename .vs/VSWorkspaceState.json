@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Agent",
+    "\\Sched-Agent-Supv",
+    "\\Sched-Agent-Supv\\Controllers",
+    "\\Scheduler",
+    "\\Scheduler.Api",
+    "\\Scheduler.Api\\Controllers"
+  ],
+  "SelectedNode": "\\Scheduler.Api\\Controllers\\ValuesController.cs",
+  "PreviewInSolutionExplorer": false
+}
